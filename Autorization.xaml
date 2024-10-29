@@ -1,0 +1,28 @@
+﻿<Window x:Class="FlowerStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerStore"
+        mc:Ignorable="d"
+        Title="Autorization" Height="450" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10" >
+        <!-- Место для логотипа -->
+        <Image Source="pack://application:,,,/Resources/Logo.png" Height="80" Margin="0,10,0,0" VerticalAlignment="Top" Stretch="Uniform" />
+
+        <!-- Название приложения -->
+        <TextBlock Text="FlowersStudio" HorizontalAlignment="Center" Margin="0,100,0,0" FontSize="16" FontWeight="Bold" />
+
+        <!-- Поля ввода логина и пароля -->
+        <StackPanel VerticalAlignment="Center" Margin="0,40,0,0">
+            <TextBlock Text="Логин" Margin="10,0,10,5" />
+            <TextBox Name="LoginTextBox" Margin="10,0,10,10" Height="30" />
+
+            <TextBlock Text="Пароль" Margin="10,0,10,5" />
+            <PasswordBox Name="PasswordBox" Margin="10,0,10,10" Height="30" />
+
+            <!-- Кнопка входа -->
+            <Button x:Name="Login" Content="Войти" Height="35" Margin="10,20,10,0" Click="Login_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
