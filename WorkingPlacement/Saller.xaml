@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="Saller" Height="450" Width="800">
     <Grid>
-        
+        <Image Source="pack://application:,,,/Resources/Logo.png" Height="80" VerticalAlignment="Top" Stretch="Uniform" Margin="13,10,682,0" />
+        <TextBlock Text="FlowersStudio" HorizontalAlignment="Left" Margin="12,106,0,302" FontSize="16" FontWeight="Bold" />
+        <Grid>
+            <TextBlock Text="Добро пожаловать в систему!"  FontSize="20" FontWeight="Bold" Margin="244,48,254,346"/>
+            <TextBlock Text="Выберите, что хотите сделать:"  FontSize="20" FontWeight="Bold" Margin="244,79,124,315"/>
+            <Button Content="Оформить заказ" HorizontalAlignment="Left" Margin="244,186,0,0" VerticalAlignment="Top" Height="53" Width="277"/>
+            <Button Content="Клиентская база" HorizontalAlignment="Left" Margin="244,270,0,0" VerticalAlignment="Top" Height="53" Width="277"/>
+            <Button Content="Выйти" HorizontalAlignment="Left" Margin="627,359,0,0" VerticalAlignment="Top" Height="53" Width="150"/>
+        </Grid>
+
     </Grid>
 </Window>
