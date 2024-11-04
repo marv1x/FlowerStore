@@ -77,6 +77,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="AppConnect.cs" />
+    <Compile Include="AppFrame.cs" />
     <Compile Include="Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -104,11 +105,14 @@
     <Compile Include="Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SallerWorkSpace\AddClient.xaml.cs">
+      <DependentUpon>AddClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SallerWorkSpace\ClienBase.xaml.cs">
       <DependentUpon>ClienBase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SallerWorkSpace\Order.xaml.cs">
-      <DependentUpon>Order.xaml</DependentUpon>
+    <Compile Include="SallerWorkSpace\Order2.xaml.cs">
+      <DependentUpon>Order2.xaml</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -146,11 +150,15 @@
       <DependentUpon>Autorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SallerWorkSpace\AddClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SallerWorkSpace\ClienBase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SallerWorkSpace\Order.xaml">
+    <Page Include="SallerWorkSpace\Order2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
