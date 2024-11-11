@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
+
 
 namespace FlowerStore.SallerWorkSpace
 {
@@ -22,6 +24,26 @@ namespace FlowerStore.SallerWorkSpace
         public Order2()
         {
             InitializeComponent();
+            /// int productId = 1;
+            /// Product product = KursovoiEntities.GetContext().Product.Where(p => p.IDProduct == productId).FirstOrDefault();
+            /// MessageBox.Show("Product Name: " + product.NameProduct);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Services_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e)
+        {
+            var Add = new AddClient();
+            Add.Show();
+            this.Close();
         }
     }
 }

@@ -26,9 +26,8 @@ namespace FlowerStore
         public static KursovoiEntities GetContext()
         {
             if (_context == null)
-            {
                 _context = new KursovoiEntities();
-            }
+
             return _context;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
