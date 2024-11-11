@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище KursovoiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище KursovoiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdditionalServices">
           <Key>
             <PropertyRef Name="IDAdditionalServices" />
@@ -251,7 +251,8 @@
             <End Role="Worker1" EntitySet="Worker1" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KursovoiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -445,7 +446,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KursovoiEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KursovoiEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AdditionalServices" EntityType="Self.AdditionalServices" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Order" EntityType="Self.Order" />
@@ -530,7 +531,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KursovoiModelContainer" CdmEntityContainer="KursovoiEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KursovoiModelContainer" CdmEntityContainer="KursovoiEntities1">
           <EntitySetMapping Name="AdditionalServices">
             <EntityTypeMapping TypeName="KursovoiModel.AdditionalServices">
               <MappingFragment StoreEntitySet="AdditionalServices">

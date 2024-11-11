@@ -8,7 +8,7 @@ namespace FlowerStore
 {
     internal class AppConnect
     {
-        public static KursovoiEntities model;
+        public static KursovoiEntities1 model;
 
 
     }

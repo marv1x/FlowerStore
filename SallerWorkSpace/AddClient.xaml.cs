@@ -45,12 +45,12 @@ namespace FlowerStore.SallerWorkSpace
 
             if (_currentClient.IDClient != 0)
             {
-                KursovoiEntities.GetContext().Client.Add(_currentClient);
+                KursovoiEntities1.GetContext().Client.Add(_currentClient);
             }
 
             try
             {
-                KursovoiEntities.GetContext().SaveChanges();
+                KursovoiEntities1.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
                 var client = new ClienBase();
                 client.Show();

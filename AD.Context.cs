@@ -15,22 +15,23 @@ namespace FlowerStore
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class KursovoiEntities : DbContext
+    public partial class KursovoiEntities1 : DbContext
     {
-        private static KursovoiEntities _context;
-        public KursovoiEntities()
-            : base("name=KursovoiEntities")
+        public KursovoiEntities1()
+            : base("name=KursovoiEntities1")
         {
         }
-    
-        public static KursovoiEntities GetContext()
-        {
-            if (_context == null)
-                _context = new KursovoiEntities();
 
-            return _context;
-        }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        private static KursovoiEntities1 _context;
+
+            public static KursovoiEntities1 GetContext()
+            {
+                if (_context == null)
+                    _context = new KursovoiEntities1();
+
+                return _context;
+            }
+            protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }

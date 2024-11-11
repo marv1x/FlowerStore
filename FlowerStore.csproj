@@ -73,37 +73,37 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AccountHelpClass.cs" />
+    <Compile Include="AD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AD.edmx</DependentUpon>
+    </Compile>
     <Compile Include="AdditionalServices.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="AppConnect.cs" />
     <Compile Include="AppFrame.cs" />
     <Compile Include="Client.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="Post.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="SallerWorkSpace\AddClient.xaml.cs">
       <DependentUpon>AddClient.xaml</DependentUpon>
@@ -115,22 +115,22 @@
       <DependentUpon>Order2.xaml</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="TypeProduct.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="Worker1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AD.tt</DependentUpon>
     </Compile>
     <Compile Include="WorkingPlacement\Manager.xaml.cs">
       <DependentUpon>Manager.xaml</DependentUpon>
@@ -189,12 +189,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="AD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>AD.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="AD.edmx.diagram">
+      <DependentUpon>AD.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -212,15 +212,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="AD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>AD.edmx</DependentUpon>
+      <LastGenOutput>AD.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="AD.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>AD.edmx</DependentUpon>
+      <LastGenOutput>AD.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

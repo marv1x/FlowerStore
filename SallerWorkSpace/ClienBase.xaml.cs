@@ -25,7 +25,7 @@ namespace FlowerStore.SallerWorkSpace
         {
             InitializeComponent();
 
-            //ClientBaseInfo.ItemsSource = KursovoiEntities.GetContext().Client.ToList();
+            //ClientBaseInfo.ItemsSource = KursovoiEntities1.GetContext().Client.ToList();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -36,10 +36,10 @@ namespace FlowerStore.SallerWorkSpace
             {
                 try
                 {
-                    KursovoiEntities.GetContext().Client.RemoveRange(ClientForRemoving);
-                    KursovoiEntities.GetContext().SaveChanges();
+                    KursovoiEntities1.GetContext().Client.RemoveRange(ClientForRemoving);
+                    KursovoiEntities1.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
-                    ClientBaseInfo.ItemsSource = KursovoiEntities.GetContext().Client.ToList();
+                    ClientBaseInfo.ItemsSource = KursovoiEntities1.GetContext().Client.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -69,8 +69,8 @@ namespace FlowerStore.SallerWorkSpace
         {
             if (Visibility == Visibility.Visible) 
             { 
-           KursovoiEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            ClientBaseInfo.ItemsSource = KursovoiEntities.GetContext().Client.ToList();
+           KursovoiEntities1.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            ClientBaseInfo.ItemsSource = KursovoiEntities1.GetContext().Client.ToList();
             }
         }
     }

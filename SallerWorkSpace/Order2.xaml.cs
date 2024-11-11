@@ -21,9 +21,18 @@ namespace FlowerStore.SallerWorkSpace
     /// </summary>
     public partial class Order2 : Window
     {
+        private Worker1 _currentWorker = new Worker1();
+        private Client _currentClient = new Client();
+        private Product _currentProduct = new Product();
         public Order2()
         {
             InitializeComponent();
+            DataContext = _currentWorker;
+            DataContext = _currentClient;
+            DataContext = _currentProduct;
+            ProductInsertName.ItemsSource = KursovoiEntities1.GetContext().Product.ToList();
+            WorkerInsertName.ItemsSource = KursovoiEntities1.GetContext().Worker1.ToList();
+            ClientInsertName.ItemsSource = KursovoiEntities1.GetContext().Client.ToList();
             /// int productId = 1;
             /// Product product = KursovoiEntities.GetContext().Product.Where(p => p.IDProduct == productId).FirstOrDefault();
             /// MessageBox.Show("Product Name: " + product.NameProduct);
@@ -44,6 +53,11 @@ namespace FlowerStore.SallerWorkSpace
             var Add = new AddClient();
             Add.Show();
             this.Close();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

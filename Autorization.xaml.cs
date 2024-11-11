@@ -30,7 +30,7 @@ namespace FlowerStore
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            KursovoiEntities model = new KursovoiEntities();
+            KursovoiEntities1 model = new KursovoiEntities1();
             try
             {
                 var userobj = model.Worker1.FirstOrDefault(x => x.Login == LoginTextBox.Text && x.Password == PasswordBox.Password);
