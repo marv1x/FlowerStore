@@ -17,21 +17,23 @@ namespace FlowerStore
     
     public partial class KursovoiEntities1 : DbContext
     {
+        private static KursovoiEntities1 _context;
         public KursovoiEntities1()
             : base("name=KursovoiEntities1")
         {
         }
 
-        private static KursovoiEntities1 _context;
+        
 
-            public static KursovoiEntities1 GetContext()
-            {
-                if (_context == null)
-                    _context = new KursovoiEntities1();
+        public static KursovoiEntities1 GetContext()
+        {
+            if (_context == null)
+                _context = new KursovoiEntities1();
 
-                return _context;
-            }
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
+            return _context;
+        }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }

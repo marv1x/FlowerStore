@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 
 namespace FlowerStore.SallerWorkSpace
@@ -21,15 +22,9 @@ namespace FlowerStore.SallerWorkSpace
     /// </summary>
     public partial class Order2 : Window
     {
-        private Worker1 _currentWorker = new Worker1();
-        private Client _currentClient = new Client();
-        private Product _currentProduct = new Product();
         public Order2()
         {
             InitializeComponent();
-            DataContext = _currentWorker;
-            DataContext = _currentClient;
-            DataContext = _currentProduct;
             ProductInsertName.ItemsSource = KursovoiEntities1.GetContext().Product.ToList();
             WorkerInsertName.ItemsSource = KursovoiEntities1.GetContext().Worker1.ToList();
             ClientInsertName.ItemsSource = KursovoiEntities1.GetContext().Client.ToList();
@@ -38,26 +33,84 @@ namespace FlowerStore.SallerWorkSpace
             /// MessageBox.Show("Product Name: " + product.NameProduct);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Services_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
-            var Add = new AddClient();
-            Add.Show();
-            this.Close();
+            if (MessageBox.Show("Вы точно хотите закрыть форму оформления заказа и открыть форму клиента?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                var Add = new AddClient();
+                Add.Show();
+                this.Close();
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
 
+            if (ProductInsertName.SelectedIndex == -1)
+            {
+                errors.AppendLine("Укажите продукт");
+            }
+
+            if (WorkerInsertName.SelectedIndex == -1)
+            {
+                errors.AppendLine("Укажите работника");
+            }
+
+            if (ClientInsertName.SelectedIndex == -1)
+            {
+                errors.AppendLine("Укажите клиента");
+            }
+
+            if (string.IsNullOrWhiteSpace(StatusBox.Text))
+            {
+                errors.AppendLine("Укажите количество");
+            }
+
+            if (string.IsNullOrWhiteSpace(CostBox.Text))
+            {
+                errors.AppendLine("Укажите стоимость");
+            }
+
+            if (string.IsNullOrWhiteSpace(IDOrderBox.Text))
+            {
+                errors.AppendLine("Укажите Айди");
+            }
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+            var product = ProductInsertName.SelectedItem as Product;
+            var worker = WorkerInsertName.SelectedItem as Worker1;
+            var client = ClientInsertName.SelectedItem as Client;
+
+            var order = new Order
+            {
+                IDOrder = int.Parse(IDOrderBox.Text),
+                IDProduct = product.IDProduct,
+                IDWorker = worker.IDWorker,
+                IDClient = client.IDClient,
+                Status = StatusBox.Text,
+                Cost = CostBox.Text,
+                DateNTime = DateTime.Parse(DateNTime.Text)
+            };
+
+
+            try
+            {
+                KursovoiEntities1.GetContext().Order.AddOrUpdate(order);
+                KursovoiEntities1.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
+                var Order2 = new Order2();
+                Order2.Show();
+                this.Close();
+            }
+
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); return; }
         }
     }
 }
