@@ -108,11 +108,20 @@
     <Compile Include="SallerWorkSpace\AddClient.xaml.cs">
       <DependentUpon>AddClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SallerWorkSpace\AddClientPage.xaml.cs">
+      <DependentUpon>AddClientPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SallerWorkSpace\ClienBase.xaml.cs">
       <DependentUpon>ClienBase.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SallerWorkSpace\ClientBasePage.xaml.cs">
+      <DependentUpon>ClientBasePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SallerWorkSpace\Order2.xaml.cs">
       <DependentUpon>Order2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SallerWorkSpace\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>AD.tt</DependentUpon>
@@ -154,11 +163,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SallerWorkSpace\AddClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SallerWorkSpace\ClienBase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SallerWorkSpace\ClientBasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SallerWorkSpace\Order2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SallerWorkSpace\OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +243,9 @@
       <DependentUpon>AD.edmx</DependentUpon>
       <LastGenOutput>AD.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WorkerPlacement\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

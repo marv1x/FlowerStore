@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlowerStore.WorkingPlacement"
         mc:Ignorable="d"
-        Title="Manager" Height="450" Width="800">
+        Title="Manager" Height="450" Width="1920">
     <Grid>
         
     </Grid>

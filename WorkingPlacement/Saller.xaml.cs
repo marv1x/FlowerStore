@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FlowerStore.WorkingPlacement
 {
@@ -20,23 +21,37 @@ namespace FlowerStore.WorkingPlacement
     /// </summary>
     public partial class Saller : Window
     {
+        private DispatcherTimer timer;
         public Saller()
         {
             InitializeComponent();
+
+            // Создаём таймер
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1); // Интервал обновления - 1 секунда
+            timer.Tick += UpdateTime;                // Привязываем обработчик
+            timer.Start();                           // Запускаем таймер
+
+            // Устанавливаем начальное значение времени
+            CurrentTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void UpdateTime(object sender, EventArgs e)
+        {
+            // Обновляем текст с текущим временем
+            CurrentTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void TakeOrder_Click(object sender, RoutedEventArgs e)
         {
-            var order = new Order2();
-            order.Show();
-            this.Close();
+            MainFrame.Navigate(new OrderPage());
+            FirstTextBox.Visibility = Visibility.Hidden;
+            SecondTextBox.Visibility = Visibility.Visible;
         }
 
         private void OpenClienBase_Click(object sender, RoutedEventArgs e)
         {
-            var clientBase = new ClienBase();
-            clientBase.Show();
-            this.Close();
+            MainFrame.Navigate(new ClientBasePage());
         }
 
         private void CloseBack_Click(object sender, RoutedEventArgs e)
