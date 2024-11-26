@@ -38,6 +38,7 @@ namespace FlowerStore.SallerWorkSpace
                 errors.AppendLine("Укажите продукт");
             }
 
+
             if (WorkerInsertName.SelectedIndex == -1)
             {
                 errors.AppendLine("Укажите работника");
@@ -58,10 +59,12 @@ namespace FlowerStore.SallerWorkSpace
                 errors.AppendLine("Укажите стоимость");
             }
 
-            if (string.IsNullOrWhiteSpace(IDOrderBox.Text))
+            if (string.IsNullOrWhiteSpace(DateNTime.Text))
             {
-                errors.AppendLine("Укажите Айди");
+                errors.AppendLine("Укажите дату");
             }
+
+
 
             if (errors.Length > 0)
             {
@@ -75,7 +78,7 @@ namespace FlowerStore.SallerWorkSpace
 
             var order = new Order
             {
-                IDOrder = int.Parse(IDOrderBox.Text),
+                
                 IDProduct = product.IDProduct,
                 IDWorker = worker.IDWorker,
                 IDClient = client.IDClient,

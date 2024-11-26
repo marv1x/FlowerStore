@@ -1,4 +1,5 @@
 ﻿using FlowerStore.WorkingPlacement;
+using MaterialDesignColors;
 using System;
 using System.Linq;
 using System.Windows;
@@ -56,7 +57,7 @@ namespace FlowerStore.SallerWorkSpace
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             // Навигация обратно на страницу продавца
-            this.NavigationService.Navigate(new Saller());
+            this.NavigationService.Content = null;
         }
 
         // Обработчик события, когда окно становится видимым

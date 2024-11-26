@@ -23,8 +23,6 @@ namespace FlowerStore
         {
         }
 
-        
-
         public static KursovoiEntities1 GetContext()
         {
             if (_context == null)
@@ -32,7 +30,7 @@ namespace FlowerStore
 
             return _context;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -5,16 +5,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:FlowerStore.SallerWorkSpace"
       mc:Ignorable="d"
-      Title="ClientBasePage" Height="450" Width="800">
+      Title="ClientBasePage" MinHeight="800" MaxHeight="2500" MinWidth="800" MaxWidth="2500" IsVisibleChanged="Page_IsVisibleChanged" >
 
     <Grid>
-        <!-- Верхняя панель с текстом -->
-        <Grid Background="Black" Height="61" VerticalAlignment="Top">
-            <TextBlock Text="Клиентская база" FontSize="25" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Grid>
-
         <!-- DataGrid для отображения информации о клиентах -->
-        <Grid Margin="0,66,0,77">
+        <Grid Margin="5,0,5,77" >
             <DataGrid x:Name="ClientBaseInfo" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="КодКлиента" Binding="{Binding IDClient}"/>
@@ -32,14 +27,12 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+
         </Grid>
 
         <!-- Кнопки для добавления и выхода -->
-        <Grid>
-            <Button Content="Добавить" Name="Add" Click="Add_Click" Margin="32,372,542,10"/>
-            <Button Content="Выйти" x:Name="Exit" Click="Exit_Click" Margin="548,372,26,10"/>
+        <Grid  VerticalAlignment="Bottom" Margin="10" >
+            <Button Content="Добавить" Name="Add" Click="Add_Click" Height="57" HorizontalAlignment="Right" Width="412"/>
         </Grid>
-
-        
     </Grid>
 </Page>

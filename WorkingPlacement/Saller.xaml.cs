@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -34,6 +35,7 @@ namespace FlowerStore.WorkingPlacement
 
             // Устанавливаем начальное значение времени
             CurrentTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
+            MainFrame.Navigated += MainFrame_Navigated;
         }
 
         private void UpdateTime(object sender, EventArgs e)
@@ -46,12 +48,18 @@ namespace FlowerStore.WorkingPlacement
         {
             MainFrame.Navigate(new OrderPage());
             FirstTextBox.Visibility = Visibility.Hidden;
+            SecondTextBox.Text = "Оформление заказа";
             SecondTextBox.Visibility = Visibility.Visible;
+            Back.IsEnabled = true;
         }
 
         private void OpenClienBase_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ClientBasePage());
+            FirstTextBox.Visibility = Visibility.Hidden;
+            SecondTextBox.Text = "Клиентская база";
+            SecondTextBox.Visibility = Visibility.Visible;
+            Back.IsEnabled = true;
         }
 
         private void CloseBack_Click(object sender, RoutedEventArgs e)
@@ -59,6 +67,38 @@ namespace FlowerStore.WorkingPlacement
             //var authorization = new Autorization();
             //authorization.Show();
             this.Close();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Вы точно хотите вернуться? Это может повлечь не сохранение данных", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                Back.IsEnabled = false;
+                MainFrame.Content = null;
+                SecondTextBox.Text = string.Empty; // Очищаем текст
+                FirstTextBox.Visibility = Visibility.Visible; // Восстанавливаем видимость, если нужно
+                SecondTextBox.Visibility = Visibility.Hidden; // Скрываем текст
+            }
+                
+        }
+        private void ClienBase_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AddClientPage());
+            FirstTextBox.Visibility = Visibility.Hidden;
+            SecondTextBox.Text = "Добавление клиента";
+            SecondTextBox.Visibility = Visibility.Visible;
+            Back.IsEnabled = true;
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            // Если в Frame больше нет содержимого, очищаем текст
+            if (MainFrame.Content == null)
+            {
+                SecondTextBox.Text = string.Empty; // Очищаем текст
+                FirstTextBox.Visibility = Visibility.Visible; // Восстанавливаем видимость, если нужно
+                SecondTextBox.Visibility = Visibility.Hidden; // Скрываем текст
+            }
         }
     }
 }
