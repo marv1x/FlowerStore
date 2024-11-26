@@ -24,6 +24,7 @@ namespace FlowerStore.SallerWorkSpace
         private Worker1 _currentWorker = new Worker1();
         private Client _currentClient = new Client();
         private Product _currentProduct = new Product();
+        private Order _currentOrder = new Order();
         public Order2()
         {
             InitializeComponent();
@@ -38,15 +39,7 @@ namespace FlowerStore.SallerWorkSpace
             /// MessageBox.Show("Product Name: " + product.NameProduct);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
-        private void Services_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
@@ -57,7 +50,36 @@ namespace FlowerStore.SallerWorkSpace
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
 
+            if (string.IsNullOrEmpty(_currentClient.FirstName))
+            {
+                errors.AppendLine("Укажите имя");
+            }
+
+            if (string.IsNullOrEmpty(_currentWorker.LastName)) { errors.AppendLine("Укажите Фамилию"); }
+            if (string.IsNullOrEmpty(_currentClient.MiddleName)) { errors.AppendLine("Укажите Отчество"); }
+            // ПОМЕНЯЙ НАЗВАНИЯ
+            if (string.IsNullOrEmpty(_currentProduct.MiddleName)) { errors.AppendLine("Укажите Отчество"); }
+            if (string.IsNullOrEmpty(Convert.ToString(_currentClient.IDClient))) { errors.AppendLine("Укажите Айди"); }
+            if (string.IsNullOrEmpty(Convert.ToString(_currentClient.NumberClient))) { errors.AppendLine("Укажите Номер"); }
+            if (errors.Length > 0) { MessageBox.Show(errors.ToString()); return; }
+
+            if (_currentClient.IDClient != 0)
+            {
+                KursovoiEntities1.GetContext().Client.Add(_currentClient);
+            }
+
+            try
+            {
+                KursovoiEntities1.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
+                var client = new ClienBase();
+                client.Show();
+                this.Close();
+            }
+
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); return; }
         }
     }
 }
