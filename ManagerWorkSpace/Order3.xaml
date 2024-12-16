@@ -1,0 +1,67 @@
+﻿<Page x:Class="FlowerStore.ManagerWorkSpace.Order3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FlowerStore.ManagerWorkSpace"
+      mc:Ignorable="d" 
+      Title="Order3" MinHeight="800" MaxHeight="1920" MinWidth="800" MaxWidth="2500" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="367*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGridOrder" AutoGenerateColumns="False" IsReadOnly="True" Grid.RowSpan="1" Margin="10,10,10,25" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код заказа" Binding="{Binding IDOrder}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Продукт" Binding="{Binding Product.NameProduct}"  Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Работник" Binding="{Binding Worker1.FullName}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Client.FullName}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Status}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Cost}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding DateNTime}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип заказа" Binding="{Binding DeliveryType}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Адресс" Binding="{Binding Client.Adress}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Name="Delete" Click="Delete_Click_1"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.RowSpan="2" Margin="10 30">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
+                <!-- Метка и DatePicker для начальной даты -->
+                <Label Content="С:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <DatePicker x:Name="StartDatePicker" Width="150" Margin="0,0,15,0"/>
+
+                <!-- Метка и DatePicker для конечной даты -->
+                <Label Content="По:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <DatePicker x:Name="EndDatePicker" Width="150" Margin="0,0,15,0"/>
+
+                <Label Content="Тип доставки:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <ComboBox x:Name="DeliveryTypeComboBox" Width="150" Margin="0,0,15,0" >
+                    <ComboBoxItem Content="Все" IsSelected="True"/>
+                    <ComboBoxItem Content="Доставка "/>
+                    <ComboBoxItem Content="Самовывоз"/>
+                    <!-- Добавьте другие типы доставки, если нужно -->
+                </ComboBox>
+
+                <!-- Кнопка фильтрации -->
+                <Button Content="Фильтровать" Click="FilterButton_Click" Width="120" Margin="0,0,5,0"/>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid  VerticalAlignment="Top" Margin="10,31,10,15" Grid.RowSpan="2" Height="81" Grid.Row="1" >
+            <Button Content="Добавить" Name="Add" Click="Add_Click" Height="57" HorizontalAlignment="Right" Width="412" />
+            <Button Content="Редактировать" x:Name="Edit" Click="Edit_Click" Height="57" HorizontalAlignment="Left" Width="412" />
+            <Button Content="Распечатать" x:Name="PrintButton" Click="PrintButton_Click" HorizontalAlignment="Center" Width="412" Height="57" />
+        </Grid>
+    </Grid>
+</Page>

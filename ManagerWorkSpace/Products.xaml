@@ -1,0 +1,39 @@
+﻿<Page x:Class="FlowerStore.ManagerWorkSpace.Products"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FlowerStore.ManagerWorkSpace"
+      mc:Ignorable="d" 
+      Title="Products" MinHeight="800" MaxHeight="1920" MinWidth="800" MaxWidth="2500" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="367*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGridProduct" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,10,10,25" Grid.RowSpan="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код продукта" Binding="{Binding IDProduct}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Название продукта" Binding="{Binding NameProduct}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Binding="{Binding AmountProduct}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Описание" Binding="{Binding DescriptionProduct}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Поставщик" Binding="{Binding Supplier.NameSupplier}"  Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Name="Delete" Click="Delete_Click" ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid  VerticalAlignment="Bottom" Margin="10,0,10,30" Grid.RowSpan="2" >
+            <Button Content="Добавить" Name="Add" Click="Add_Click" Height="57" HorizontalAlignment="Right" Width="412"  />
+            <Button Content="Редактировать" x:Name="Edit" Click="Edit_Click" Height="57" HorizontalAlignment="Left" Width="412"/>
+            <Button Content="Распечатать" x:Name="Print" Click="Print_Click" Height="57" HorizontalAlignment="Center" Width="412"/>
+        </Grid>
+    </Grid>
+</Page>

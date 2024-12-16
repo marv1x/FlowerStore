@@ -1,0 +1,40 @@
+﻿<Window x:Class="FlowerStore.SallerWorkSpace.ClienBase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerStore.SallerWorkSpace"
+        mc:Ignorable="d"
+        Title="ClienBase" Height="450" Width="800" WindowStartupLocation="CenterScreen" IsVisibleChanged="Window_IsVisibleChanged">
+    <Grid>
+        <Grid Background="Black" Height="61" VerticalAlignment="Top" >
+            <TextBlock Text="Клиентская база" FontSize="25"  Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Margin="0,66,0,77">
+            <DataGrid x:Name="ClientBaseInfo" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="КодКлиента" Binding="{Binding IDClient}"/>
+                    <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding MiddleName}"/>
+                    <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding Adress}"/>
+                    <DataGridTextColumn Header="Номер" Width="*" Binding="{Binding NumberClient}"/>
+                    <DataGridTemplateColumn Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Удалить" Name="Delete" Click="Delete_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid>
+            <Button Content="Добавить" Name="Add" Click="Add_Click" Margin="32,372,542,10"></Button>
+            <Button Content="Выйти" x:Name="Exit" Click="Exit_Click" Margin="548,372,26,10"/>
+            <TextBlock Text="FlowersStudio" HorizontalAlignment="Left" Margin="79,20,0,80" FontSize="16" FontWeight="Bold" Foreground="White" />
+        </Grid>
+        <Image Source="pack://application:,,,/Resources/Logo.png" Height="56" Margin="6,2,706,0" VerticalAlignment="Top" Stretch="Uniform" />
+    </Grid>
+</Window>
